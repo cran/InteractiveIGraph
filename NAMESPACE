@@ -1,0 +1,21 @@
+## exportPattern("^[[:alpha:]]+")
+
+import(igraph, grDevices)
+
+export(InteractiveIGraph)
+export(InteractiveIGraph.Constructor)
+S3method(plot, InteractiveIGraph)
+S3method(as.igraph, InteractiveIGraph)
+
+export(ExtraInfo.default, BottomMenuAdjustment.default, PlotAdjustment.default)
+export(CommandList, PrintCommandList)
+export(MenuAddItems)
+
+
+
+
+
+
+
+
+
