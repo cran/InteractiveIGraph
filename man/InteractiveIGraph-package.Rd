@@ -20,9 +20,9 @@ The main function in this package is \code{\link{InteractiveIGraph}} - in fact, 
 \tabular{ll}{
 Package: \tab InteractiveIGraph\cr
 Type: \tab Package\cr
-Version: \tab 1.0.4\cr
+Version: \tab 1.0.5\cr
 Stage: \tab development \cr
-Date: \tab 2013-02-03\cr
+Date: \tab 2013-02-06\cr
 Author: \tab Vygantas Butkus \cr
 Maintainer:  \tab Vygantas Butkus <Vygantas.Butkus@gmail.com> \cr
 Institution: \tab the Bank of Lithuania \cr
@@ -67,11 +67,12 @@ The main function is \code{\link{InteractiveIGraph}}.
 
 \examples{
 
+
 # this is a regular igraph object
 gOrg <- erdos.renyi.game(15, 1/10,  directed = TRUE)
 plot(gOrg) 
 
-# this is an 'InteractiveIGraph' object, up to now not much difference.  Just some extra ettributes.
+# this is an 'InteractiveIGraph' object, up till now there is not much difference. Just some extra attributes.
 g = InteractiveIGraph.Constructor(gOrg)
 g = plot(g) 
 
@@ -80,5 +81,13 @@ if(interactive()){
   g = InteractiveIGraph(gOrg)
 }
 # p.s. if you want to save changes please press 'q' while ruining InteractiveIGraph().
+
+# Select some vertices and apply commands, for example 'a', 'A', or 'g', 'b'.
+# you may change any attributes by key 'ctrl-F' and then typing attributes command, for example 'color="green"'
+# (it will work only on selected vertices).
+
+# you may run any command by key 'ctrl-C' and typing command, for example 'print(V(g)$name)'
+
+# with key 's' you can change selection mode - in this way you can select multiple vertices. 
 
 }

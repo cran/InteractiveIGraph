@@ -142,7 +142,7 @@ It should me mentioned that in very rare moments the reasons of crashing are not
 gOrg <- erdos.renyi.game(15, 1/10,  directed = TRUE)
 plot(gOrg) 
 
-# this is an 'InteractiveIGraph' object, up to now not much difference. Just some extra ettributes.
+# this is an 'InteractiveIGraph' object, up till now there is not much difference. Just some extra attributes.
 g = InteractiveIGraph.Constructor(gOrg)
 g = plot(g) 
 

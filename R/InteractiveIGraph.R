@@ -417,9 +417,9 @@ InteractiveIGraph.Constructor <- function(g, ...){
 		}
 		V(g)$x = mat[,1]
 		V(g)$y = mat[,2]
-		dots[["layout"]] = g$layout = NULL
-		
-	
+		dots[["layout"]] =  NULL
+		g = remove.graph.attribute(g, "layout")
+
 	
 		### Grafiniai parametrai
 		# butinuju parametru defoltai
@@ -642,7 +642,6 @@ GetShortestPath <- function(mode="all", g){
 
 	eProgIds = NULL
 
-	msg = "Which vertices should be joined? Program searches from selected vertices to active one. "
 	gi = induced.subgraph(g, vids=V(g)[active & !hidden])
 	gi = delete.edges(gi, edges=E(gi)[!active])
 	AO = GetActiveObject(gi)
