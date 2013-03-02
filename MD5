@@ -1,4 +1,4 @@
-7fb987ef38f02f00b905838dbc0e8bbe *DESCRIPTION
+03bc683c3062b4065909b1263da435c5 *DESCRIPTION
 2ebae76db7d21c6fbeaf8c55288cee3b *NAMESPACE
 9f4cd8a5c419e1c35e6d453a5e0c4b63 *R/AdjustmentDefaults.R
 5afea3459a54f179d00fb3a5584b4cf9 *R/AttributesManipulation.R
@@ -6,11 +6,11 @@ e47a639c0d2601e81ada97d9d83d98d3 *R/CommandList.R
 0c36dccdd1063da63a3eff8d898527a3 *R/DummyAssignment.R
 da5889cf902b5ef26fa78f7369b8cfa8 *R/ExtraFunctions.R
 42e74e671552b28e3d15f43b733621d1 *R/Groups.R
-39bf103f2cebf0e0cd7d24ceba10333a *R/InteractiveIGraph.R
+58f0689988c0f263cf5007c8ec171c64 *R/InteractiveIGraph.R
 691b8eae805853870a7b5bff0ca2a998 *R/Menu.R
 2b1512c27584478db906ed73e13cce74 *inst/doc/Illustrations.pdf
-acd7b4866bf1b145c1ae0a7abf487955 *man/AdjustmentFunctions.Rd
-cbb396c372ee8f9a254f7943d9a9362f *man/CommandList.Rd
-d3f60573bcbb345dbff1d6b29de77d7f *man/InteractiveIGraph-package.Rd
-63f874283a201e1e823a6283706ac906 *man/InteractiveIGraph.Rd
+b99ac8d3fab34869e2de29d8ecc95e76 *man/AdjustmentFunctions.Rd
+85d10b3aa0afbd8cea111619949370fb *man/CommandList.Rd
+692453a5bad759e197398a875c1093f1 *man/InteractiveIGraph-package.Rd
+f65d50fd07b98ea954e26ef2b7d7287d *man/InteractiveIGraph.Rd
 f84a528cebb643254bd77d66327f4e93 *man/MenuAddItems.Rd

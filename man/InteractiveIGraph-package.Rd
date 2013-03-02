@@ -20,9 +20,8 @@ The main function in this package is \code{\link{InteractiveIGraph}} - in fact, 
 \tabular{ll}{
 Package: \tab InteractiveIGraph\cr
 Type: \tab Package\cr
-Version: \tab 1.0.5\cr
-Stage: \tab development \cr
-Date: \tab 2013-02-06\cr
+Version: \tab 1.0.6.1\cr
+Date: \tab 2013-03-02\cr
 Author: \tab Vygantas Butkus \cr
 Maintainer:  \tab Vygantas Butkus <Vygantas.Butkus@gmail.com> \cr
 Institution: \tab the Bank of Lithuania \cr
@@ -31,17 +30,18 @@ License: \tab GPL-2\cr
 }
 
 This package is based on \code{\link{igraph}}, \code{\link{grDevices}} packages, 
-therefore it has there advantages and disadvantages.
+therefore it has their advantages and disadvantages.
 
-First of all, \code{InteractiveIGraph} works only on \code{Windows} 
+First of all, \code{\link{InteractiveIGraph}} works only on \code{Windows} 
 and \code{X11(type = "Xlib")} screen devices,
-therefore if working with RStudio yous should activate one of the devices.
+therefore if working with RStudio you should activate one of the devices.
 Secondly, with the large graphs, reploting becomes really annoying, 
 so, it is really for small graphs. 
-On the other hand customising large graphs by programming might by even more annoying.
+On the other hand customising large graphs in console might by even more annoying.
 
 This package has several huge advantages comparing with \code{\link{tkplot}}. Firstly, it is much more flexible.
-You can change any attributes or vertexes or edges. Moreover, you may easily create any extra functionality (menu command).
+You can change any attributes or vertexes or edges. Moreover, you may easily create any extra functionality 
+in menu commands.
 On the other hand, it is not so much intuitive and stable. In the case of wrong entrees it may crash. 
 
 }
@@ -49,12 +49,12 @@ On the other hand, it is not so much intuitive and stable. In the case of wrong 
 \note{
 
 This project is not fully completed, but unfortunately it is not in active development any more.
-Up till now it fulfills all my needs. In the case of new ideas i might join further development. 
+Up till now it fulfills all my needs. In the case of new ideas I might join further development. 
 
 }
 
 \author{
-Author and Maintainer: Vygantas Butkus <Vygantas.Butkus@gmail.com>.
+Author and maintainer: Vygantas Butkus <Vygantas.Butkus@gmail.com>.
 }
 
 \section{Warning}{
@@ -72,7 +72,8 @@ The main function is \code{\link{InteractiveIGraph}}.
 gOrg <- erdos.renyi.game(15, 1/10,  directed = TRUE)
 plot(gOrg) 
 
-# this is an 'InteractiveIGraph' object, up till now there is not much difference. Just some extra attributes.
+# this is an 'InteractiveIGraph' object, up till now there is not much difference. 
+# Just some extra attributes.
 g = InteractiveIGraph.Constructor(gOrg)
 g = plot(g) 
 
@@ -83,7 +84,8 @@ if(interactive()){
 # p.s. if you want to save changes please press 'q' while ruining InteractiveIGraph().
 
 # Select some vertices and apply commands, for example 'a', 'A', or 'g', 'b'.
-# you may change any attributes by key 'ctrl-F' and then typing attributes command, for example 'color="green"'
+# you may change any attributes by key 'ctrl-F' and then typing attributes command,
+# for example 'color="green"'
 # (it will work only on selected vertices).
 
 # you may run any command by key 'ctrl-C' and typing command, for example 'print(V(g)$name)'

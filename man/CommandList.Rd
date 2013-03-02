@@ -19,9 +19,11 @@ CommandList
 }
 
 \details{
-Almost all commands of HotKeys that could be applied in \code{\link{InteractiveIGraph}} are recorded in the \code{CommandList}.
-The names of the \code{CommandList} correspond to an key and the elements of
-\code{CommandList} contains a list with label, description and the function. 
+Almost all commands (hot-keys) that could be applied in \code{\link{InteractiveIGraph}} 
+are recorded in the \code{CommandList}.
+It is an object of the type \code{list}.
+The names of it's elements correspond to a hot-key and the elements contains a \code{list}
+ with label, description and the function. 
 
 You can append this list, but be aware of the \code{CommandList} structure and be sure to
  return an object of the class \code{\link{InteractiveIGraph}} at the end of the function.
@@ -33,7 +35,7 @@ There are some special keys that are not in the list.
 	\item{<Esc>}{Drop any selection and exit any mode.}
 	\item{<ctrl-Z>}{Undo, it will rester your last action.}
 	\item{<Enter>}{Enter to view mode if any object is active, or enters command if system is waiting for some input.}
-	\item{<ctrl-V>}{Use method paste if system is waiting for some input.}
+	\item{<ctrl-V>}{Applies paste command if system is waiting for some input.}
 	\item{<Backspace>}{Applies Backspace if system is waiting for some input.}
 }
 

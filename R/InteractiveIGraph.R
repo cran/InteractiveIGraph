@@ -300,6 +300,7 @@ plot.InteractiveIGraph <- function(x, ...){
 	gi = gplotList[[1]] 
 	PlotParam = gi$PlotParam
 	PlotParam$x = gi + DummyVertices
+	PlotParam=PlotParam[-(which(sapply(PlotParam,is.null),arr.ind=TRUE))]
 	do.call("plot.igraph", args=PlotParam)
 	
 
@@ -309,6 +310,7 @@ plot.InteractiveIGraph <- function(x, ...){
 			PlotParam = gi$PlotParam 
 			PlotParam$x = gi + DummyVertices
 			PlotParam$add = TRUE
+			PlotParam=PlotParam[-(which(sapply(PlotParam,is.null),arr.ind=TRUE))]
 			do.call("plot.igraph", args=PlotParam)		
 		}	
 	}
@@ -422,13 +424,16 @@ InteractiveIGraph.Constructor <- function(g, ...){
 
 	
 		### Grafiniai parametrai
+		NameList = c("xlim", "ylim", "main", "sub", "axes", "xlab", "ylab" , "add") 
+		PlotParam = vector("list", length(NameList))
+		names(PlotParam) = NameList
+		g = set.graph.attribute(g, "PlotParam", PlotParam)
 		# butinuju parametru defoltai
-		g$PlotParam <- list()
+		g$PlotParam$xlim = c(-1, 1)
 		g$PlotParam$xlim = c(-1, 1)
 		g$PlotParam$ylim = c(-1.1, 1)
 		g$PlotParam$add = FALSE		
 		# overridinimas
-		NameList = c("xlim", "ylim", "main", "sub", "axes", "xlab", "ylab" , "add") 
 		TakeNames = intersect(NameList, names(dots))
 		g$PlotParam[TakeNames] = dots[TakeNames]
 		dots[TakeNames] = NULL
@@ -466,6 +471,11 @@ InteractiveIGraph.Constructor <- function(g, ...){
 
 		
 		### parametai, ir saugomi kintamieji
+		NameList = c("input", "replot", "quite", "save", "mar", "generated", "type" , "GName") 
+		ExtraParam = vector("list", length(NameList))
+		names(ExtraParam) = NameList
+		g = set.graph.attribute(g, "ExtraParam", ExtraParam)
+		
 		g$ExtraParam$input = ""
 		g$ExtraParam$replot = FALSE			
 		g$ExtraParam$quite = FALSE
@@ -500,6 +510,14 @@ InteractiveIGraph.Constructor <- function(g, ...){
 		dots[c("groups","mark.groups")] = NULL
 
 		### busenu nustatymai 
+		NameList = c("select", "AllEdges", "ActiveObjectType", "ActiveObjectProgId", 
+			"ViewObjectType", "ViewObjectProgId", "input" , "InputType") 
+		mode = vector("list", length(NameList))
+		names(mode) = NameList
+		g = set.graph.attribute(g, "mode", mode)
+		
+		
+		g$mode$select = FALSE
 		g$mode$select = FALSE
 		g$mode$AllEdges = FALSE
 				
@@ -515,18 +533,22 @@ InteractiveIGraph.Constructor <- function(g, ...){
 		
 
 		### apdorojimo funckijos:
-		g$functions = list()
+		NameList = c("PlotAdjustment", "BottomMenuAdjustment", "ExtraInfo") 
+		functions = vector("list", length(NameList))
+		names(functions) = NameList
+		g = set.graph.attribute(g, "functions", functions)
+
+		g$functions$PlotAdjustment = "PlotAdjustment.default" # nezinau kodel, bet reikia dvieju eiluciu - tuomet gerai
 		g$functions$PlotAdjustment = "PlotAdjustment.default"
 		g$functions$BottomMenuAdjustment = "BottomMenuAdjustment.default"
 		g$functions$ExtraInfo = "ExtraInfo.default"	
 		# Overridinimas	
-		NameList = c("PlotAdjustment", "BottomMenuAdjustment", "ExtraInfo") 
 		TakeNames = intersect(NameList, names(dots))
 		g$functions[TakeNames] = dots[TakeNames]
 		dots[TakeNames] = NULL
 
 		### Menu 
-		g$Menu <- list()
+		
 		### Apatinis Menu, cia nekoreguojasm, bet per funkcijas galima nurodyti ka rodyti. Cia galima tik ji isjungti
 		InputItem = list(label="Input: ", RegionParams=list(YBufCof=0.2), RecParams=list(lwd = NA, border=NA), TextParams=list(cex=0.8))
 		InputLine = list(active = FALSE, MenuItems=list(InputItem),RecParams=list(lwd = NA, border=NA))
@@ -555,8 +577,11 @@ InteractiveIGraph.Constructor <- function(g, ...){
 		} else {
 			MainMenu = dots[["MainMenu"]]
 		}
-		g$Menu$MenuList = list(BottomMenu=BottomMenu, MainMenu=MainMenu)	
-			
+		# g$Menu$MenuList = list(BottomMenu=BottomMenu, MainMenu=MainMenu)	
+		g = set.graph.attribute(g, "Menu", list(MenuList=list(), ActiveMenuList=list()))
+		g$Menu$MenuList = list(BottomMenu=BottomMenu, MainMenu=MainMenu)
+		g$Menu$MenuList = list(BottomMenu=BottomMenu, MainMenu=MainMenu)
+
 		if(class(g)[1]!="InteractiveIGraph") class(g) <- c("InteractiveIGraph", class(g))	
 	}
 	

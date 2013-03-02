@@ -39,7 +39,7 @@ Before running \code{\link{InteractiveIGraph}} firstly you should create simple 
 Later on, you must be sure you are running correct screen device. 
 \code{\link{InteractiveIGraph}} works only on \code{\link{window}} 
 and \code{\link{X11}(type = "Xlib")} screen devices,
-therefore if working with RStudio(or smth.) you should activate one of the correct devices.
+therefore if working with RStudio (or smth.) you should activate one of the correct devices.
 
 After running the function, you can play around by using computer mouse directly on screen device. 
 You can grab vertex (or group if them), move it,
@@ -50,22 +50,22 @@ press <q>, that stands for 'quite' - it will end the interaction program and ass
 See examples.
 
 Keyboard is active if the graphical device is active. 
-To apply the command you just need to know a HotKey. While ruining \code{\link{InteractiveIGraph}}
+To apply the command you just need to know a hot-key. While ruining \code{\link{InteractiveIGraph}}
 you may press <m> that stands for 'menu' and all the list will be printed in the console.
 The list of commands are kept in \code{\link{CommandList}}. 
 This list might by modified by user, therefore, 
-any functionality might my easily added by creating a HotKey in the \code{\link{CommandList}}.
+any functionality might my easily added by creating new hot-key in the \code{\link{CommandList}}.
 You can find out almost all the commands by exploring \code{\link{CommandList}} (run function \code{\link{PrintCommandList}}).
 For example if you want to see \code{\link{minimum.spanning.tree}} of your graph you should pres button <t> while running 
 \code{InteractiveIGraph}. You may see how this is realized with the command \code{CommandList[["t"]]}
 
 There are some special features, that user might found interesting:
 \itemize{
-	\item active vertices. Vertices may by active / not active. HotKeys: a, A, ctrl-A.
-	\item grouping. Vertices might be grouped interactively. HotKey: g, G,  ctrl-G.
+	\item active vertices. Vertices may by active / not active. hot-key: a, A, ctrl-A.
+	\item grouping. Vertices might be grouped interactively. hot-key: g, G,  ctrl-G.
 	\item blocking. Groups might be 'closed' in blocks,
-		Isolating huge amount of Vertices that not actual in the moment. 
-		HotKey: b (while any groups is active).	
+		Isolating huge amount of vertices that not actual in the moment. 
+		hot-key: b (while any groups is active).	
 }
 
 It should be notice that there are several modes, that influence the output of commands.
@@ -79,15 +79,15 @@ Main modes are:
 	\item ViewObject. If it is in object's view mode it is labeled in the 'main' of the graph. 
 		Special treatment of the commands might by applied. For example, if it is view mode of group, 
 		then selecting vertices and pressing "g" will join or disjoin vertices to group (instead of creating new group.) 
-	\item input. Specifies case, then system is waiting for some kind of input, for example command.
+	\item Input. Specifies case, then system is waiting for some kind of input, for example command.
 	\item AllEdges. By default, if there are more then one vertices selected no edge indexes are shown. 
-		This mode forces to shoe active vertex edges.
+		This mode forces to show active vertex edges.
 }
 If you are in the mode that you don't want to be, press <Esc> - it will restore default.
 
 In \code{\dots} you may specify many parameters form \code{\link{igraph}}, namely: 
 'layout' 'xlim', 'ylim', 'main', 'sub', 'axes', 'xlab', 'ylab' , 'add'.
-User may specify the margins this parameter 'mar'.
+User may specify the margins with parameter 'mar'.
 Any vertex or edge parameters should be add via \code{\link{V}} and \code{\link{E}}.
 
 User may also specify its own \link[=PlotAdjustment.default]{Adjustment Functions}, namely
@@ -111,7 +111,7 @@ Vygantas Butkus
 \note{
 
 This package is based on \code{\link{igraph}}, \code{\link{grDevices}} packages, 
-therefore it has there advantages and disadvantages.
+therefore it has their advantages and disadvantages.
 
 First of all, \code{InteractiveIGraph} works only on \code{Windows} 
 and \code{X11(type = "Xlib")} screen devices,
@@ -153,7 +153,8 @@ if(interactive()){
 # p.s. if you want to save changes please press 'q' while ruining InteractiveIGraph().
 
 # Select some vertices and apply commands, for example 'a', 'A', or 'g', 'b'.
-# you may change any attributes by key 'ctrl-F' and then typing attributes command, for example 'color="green"'
+# you may change any attributes by key 'ctrl-F' and then typing attributes command, 
+# for example 'color="green"'
 # (it will work only on selected vertices).
 
 # you may run any command by key 'ctrl-C' and typing command, for example 'print(V(g)$name)'
